@@ -1,0 +1,12 @@
+{
+    "name": "Epoch",
+    "tree": {
+        "$className": "DataModel",
+        "ServerScriptService": {
+            "$className": "ServerScriptService",
+            "Epoch": {
+                "$path": "./default.project.json"
+            }
+        }
+    }
+}
