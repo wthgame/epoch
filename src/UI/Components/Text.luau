@@ -1,7 +1,7 @@
 local Epoch = script:FindFirstAncestor("Epoch")
 local Types = require(Epoch.Types)
 local Vide = require(Epoch.Packages.Vide)
-local dissolve = require(Epoch.Utils.dissolve)
+local dissolve = require(Epoch.Utils.Vide.dissolve)
 local exhaustiveMatch = require(Epoch.Utils.exhaustiveMatch)
 
 type Align = "start" | "mid" | "end"
@@ -20,15 +20,7 @@ export type TextProps = {
 	alignX: Types.ReadAs<Align>?,
 	alignY: Types.ReadAs<Align>?,
 
-	layout: {
-		position: Types.ReadAs<UDim2>?,
-		anchorPoint: Types.ReadAs<Vector2>?,
-		automaticSize: Types.ReadAs<Enum.AutomaticSize>?,
-		size: Types.ReadAs<UDim2>?,
-		layoutOrder: Types.ReadAs<number>?,
-		zIndex: Types.ReadAs<number>?,
-		visible: Types.ReadAs<boolean>?,
-	}?,
+	layout: Types.LayoutProps?,
 }
 
 local function Text(props: TextProps): TextLabel

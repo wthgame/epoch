@@ -1,5 +1,6 @@
 local Epoch = script:FindFirstAncestor("Epoch")
 local LibraryView = require("./LibraryView")
+local Theme = require(Epoch.Ui.Theme)
 local UILabs = require(Epoch.Packages.UILabs)
 
 return UILabs.CreateVideStory(
@@ -7,6 +8,11 @@ return UILabs.CreateVideStory(
 		vide = require(Epoch.Packages.Vide),
 	},
 	function(props: UILabs.VideProps)
-		return LibraryView {}
+		return Theme.ThemePreview {
+			fillDirection = "horizontal",
+			render = function()
+				return LibraryView {}
+			end,
+		}
 	end :: any
 )

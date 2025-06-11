@@ -3,5 +3,7 @@
     "lint": {
         "*": true,
         "LocalShadow": false
-    }
+    },
+    "lintErrors": true,
+    "typeErrors": true
 }

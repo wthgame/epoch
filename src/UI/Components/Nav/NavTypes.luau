@@ -24,15 +24,7 @@ export type NavProps = {
 
 	iconPlacement: Types.ReadAs<IconPlacement>?,
 
-	layout: {
-		position: Types.ReadAs<UDim2>?,
-		anchorPoint: Types.ReadAs<Vector2>?,
-		automaticSize: Types.ReadAs<Enum.AutomaticSize>?,
-		size: Types.ReadAs<UDim2>?,
-		layoutOrder: Types.ReadAs<number>?,
-		zIndex: Types.ReadAs<number>?,
-		visible: Types.ReadAs<boolean>?,
-	}?,
+	layout: Types.LayoutProps?,
 
 	[number]: NavOption,
 }

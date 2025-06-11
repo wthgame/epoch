@@ -1,19 +1,27 @@
 local Epoch = script:FindFirstAncestor("Epoch")
 local Assets = require(Epoch.Assets)
-local NavTypes = require(Epoch.UI.Components.Nav.NavTypes)
-local Theme = require(Epoch.UI.Theme)
-local TopNav = require(Epoch.UI.Components.Nav.TopNav)
+local NavTypes = require(Epoch.Ui.Components.Nav.NavTypes)
+local TextField = require(Epoch.Ui.Components.Controls.TextField)
+local Theme = require(Epoch.Ui.Theme)
+local TopNav = require(Epoch.Ui.Components.Nav.TopNav)
 local Vide = require(Epoch.Packages.Vide)
+
+local create, source = Vide.create, Vide.source
 
 export type LibraryViewProps = {}
 
 local function LibraryView(props: LibraryViewProps)
-	local currentPage = Vide.source("COs")
+	local currentPage = source("COs")
+	local searchInput = source("")
 
-	return Vide.create "Frame" {
+	return create "Frame" {
 		Name = "LibraryView",
 		BackgroundColor3 = Theme.background,
 		Size = UDim2.fromScale(1, 1),
+
+		create "UiListLayout" {
+			Padding = UDim.new(0, 8),
+		},
 
 		TopNav {
 			colors = {
@@ -77,6 +85,21 @@ local function LibraryView(props: LibraryViewProps)
 				onActivated = function()
 					currentPage("Beams")
 				end,
+			},
+		},
+
+		TextField {
+			text = searchInput,
+			placeholderText = "Type to search",
+			onInput = function(new)
+				searchInput(new)
+			end,
+
+			colors = {
+				background = Theme.input.background,
+				borderActive = Theme.library.navActiveBackground,
+				text = Theme.text,
+				placeholder = Theme.input.placeholder,
 			},
 		},
 	}

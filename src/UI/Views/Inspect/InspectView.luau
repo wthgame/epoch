@@ -1,5 +1,5 @@
 local Epoch = script:FindFirstAncestor("Epoch")
-local Theme = require(Epoch.UI.Theme)
+local Theme = require(Epoch.Ui.Theme)
 local Vide = require(Epoch.Packages.Vide)
 
 export type InspectViewProps = {}

@@ -1,9 +1,9 @@
 local Epoch = script:FindFirstAncestor("Epoch")
 local NavTypes = require("./NavTypes")
-local Text = require(Epoch.UI.Components.Text)
+local Text = require(Epoch.Ui.Components.Text)
 local Vide = require(Epoch.Packages.Vide)
-local dissolve = require(Epoch.Utils.dissolve)
-local iterArray = require(Epoch.Utils.iterArray)
+local dissolve = require(Epoch.Utils.Vide.dissolve)
+local iterArray = require(Epoch.Utils.Collections.iterArray)
 
 local function TopNavOption(props: NavTypes.NavOption, navProps: NavTypes.NavProps)
 	local hover = Vide.source(false)
@@ -31,7 +31,7 @@ local function TopNavOption(props: NavTypes.NavOption, navProps: NavTypes.NavPro
 			hover(false)
 		end,
 
-		Vide.create "UIListLayout" {
+		Vide.create "UiListLayout" {
 			FillDirection = dissolve(function(read)
 				return if read(navProps.iconPlacement) == "horizontal"
 					then Enum.FillDirection.Horizontal
@@ -60,7 +60,7 @@ local function TopNavOption(props: NavTypes.NavOption, navProps: NavTypes.NavPro
 			},
 		},
 
-		Vide.create "UIGradient" {
+		Vide.create "UiGradient" {
 			Color = ColorSequence.new({
 				ColorSequenceKeypoint.new(0, Color3.new(1, 1, 1)),
 				ColorSequenceKeypoint.new(0.02, Color3.new(1, 1, 1)),
@@ -94,7 +94,7 @@ local function TopNav(props: NavTypes.NavProps)
 		ZIndex = layout.zIndex,
 		Visible = layout.visible,
 
-		Vide.create "UIGridLayout" {
+		Vide.create "UiGridLayout" {
 			CellPadding = UDim2.new(),
 			CellSize = UDim2.fromScale(1 / #props, 1),
 		},
