@@ -1,4 +1,5 @@
 local Epoch = script:FindFirstAncestor("Epoch")
+local Theme = require(Epoch.UI.Theme)
 local Types = require(Epoch.Types)
 local Vide = require(Epoch.Packages.Vide)
 local dissolve = require(Epoch.Utils.Vide.dissolve)
@@ -32,7 +33,7 @@ local function Text(props: TextProps): TextLabel
 
 		Name = props.name or props.text or "Text",
 
-		Text = props.text,
+		Text = props.text or Theme.text,
 		TextTransparency = props.transparency,
 		TextSize = props.size,
 		TextColor3 = props.color,

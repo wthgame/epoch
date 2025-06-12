@@ -20,7 +20,7 @@ export type PaddingProps = {
 local ZERO_UDIM = UDim.new()
 
 local function Padding(props: PaddingProps)
-	return create "UiPadding" {
+	return create "UIPadding" {
 		Name = props.name or "Padding",
 
 		PaddingLeft = dissolve(function(read)

@@ -38,7 +38,7 @@ return UILabs.CreateVideStory({
 			AutomaticSize = Enum.AutomaticSize.XY,
 			BackgroundTransparency = 1,
 
-			create "UiListLayout" {
+			create "UIListLayout" {
 				SortOrder = Enum.SortOrder.LayoutOrder,
 			},
 
@@ -64,7 +64,7 @@ return UILabs.CreateVideStory({
 				return create "Frame" {
 					AutomaticSize = Enum.AutomaticSize.XY,
 
-					create "UiListLayout" {
+					create "UIListLayout" {
 						SortOrder = Enum.SortOrder.LayoutOrder,
 						FillDirection = Enum.FillDirection.Horizontal,
 					},

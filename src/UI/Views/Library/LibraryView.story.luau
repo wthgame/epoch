@@ -1,6 +1,6 @@
 local Epoch = script:FindFirstAncestor("Epoch")
 local LibraryView = require("./LibraryView")
-local Theme = require(Epoch.Ui.Theme)
+local Theme = require(Epoch.UI.Theme)
 local UILabs = require(Epoch.Packages.UILabs)
 
 return UILabs.CreateVideStory(

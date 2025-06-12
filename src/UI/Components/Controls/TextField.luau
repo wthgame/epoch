@@ -1,10 +1,11 @@
 local TextService = game:GetService("TextService")
 
 local Epoch = script:FindFirstAncestor("Epoch")
-local Bevel = require(Epoch.Ui.Components.Fx.Bevel)
-local Padding = require(Epoch.Ui.Components.Padding)
-local Round = require(Epoch.Ui.Components.Round)
-local Text = require(Epoch.Ui.Components.Text)
+local Bevel = require(Epoch.UI.Components.Fx.Bevel)
+local Padding = require(Epoch.UI.Components.Padding)
+local Round = require(Epoch.UI.Components.Round)
+local Text = require(Epoch.UI.Components.Text)
+local Theme = require(Epoch.UI.Theme)
 local Types = require(Epoch.Types)
 local Vide = require(Epoch.Packages.Vide)
 local changed = require(Epoch.Utils.Vide.Actions.changed)
@@ -22,18 +23,22 @@ export type TextFieldProps = {
 	onInput: ((new: string) -> ())?,
 	onUnfocused: ((new: string, enter: boolean) -> ())?,
 
+	cornerRadius: Types.ReadAs<UDim>?,
+	focusRing: Types.ReadAs<Color3>?,
+
 	colors: {
-		background: Types.ReadAs<Color3>,
-		borderActive: Types.ReadAs<Color3>,
-		text: Types.ReadAs<Color3>,
-		placeholder: Types.ReadAs<Color3>,
-	},
+		base: Types.ReadAs<Color3>?,
+		text: Types.ReadAs<Color3>?,
+		placeholder: Types.ReadAs<Color3>?,
+	}?,
 
 	layout: Types.LayoutProps?,
 }
 
 local function TextField(props: TextFieldProps)
+	local colors = props.colors or {} :: never
 	local layout = props.layout or {} :: never
+
 	local textSize = props.size or 14
 	local textFont = dissolve(function(read)
 		return Font.fromName("SourceSansPro", read(props.weight) or Enum.FontWeight.Regular)
@@ -53,7 +58,7 @@ local function TextField(props: TextFieldProps)
 	return create "ImageButton" {
 		Name = props.name or "TextField",
 
-		BackgroundColor3 = props.colors.background,
+		BackgroundColor3 = colors.base or Theme.mantle,
 
 		Position = layout.position,
 		AnchorPoint = layout.anchorPoint,
@@ -66,29 +71,29 @@ local function TextField(props: TextFieldProps)
 
 		Padding { all = UDim.new(0, 2) },
 
-		Round { round = UDim.new(0, 3) },
+		props.cornerRadius and Round { round = props.cornerRadius },
 
 		Bevel {
 			invert = false,
 			thickness = 1,
-			cornerRadius = UDim.new(0, 3),
+			cornerRadius = props.cornerRadius,
 		},
 
-		create "UiStroke" {
-			Name = "Border",
+		props.focusRing and create "UIStroke" {
+			Name = "Ring",
 			-- Color = spring(function()
 			-- 	return if focused()
 			-- 		then read(props.colors.borderActive)
 			-- 		elseif guiState() == Enum.GuiState.Hover then read(props.colors.borderHover)
 			-- 		else read(props.colors.border)
 			-- end, 0.2),
-			Color = props.colors.borderActive,
+			Color = props.focusRing,
 			Thickness = spring(function()
-				return if focused() then 4 else 0
-			end, 0.2),
+				return if focused() then 2 else 6
+			end, 0.4),
 			Transparency = spring(function()
 				return if focused() then 0 else 1
-			end, 0.6),
+			end, 0.2),
 		},
 
 		create "ScrollingFrame" {
@@ -126,7 +131,7 @@ local function TextField(props: TextFieldProps)
 				FontFace = textFont,
 				PlaceholderText = "",
 				Text = props.text,
-				TextColor3 = props.colors.text,
+				TextColor3 = colors.text or Theme.text,
 				TextSize = textSize,
 				TextXAlignment = Enum.TextXAlignment.Left,
 				TextYAlignment = Enum.TextYAlignment.Center,
@@ -164,7 +169,7 @@ local function TextField(props: TextFieldProps)
 			text = props.placeholderText or "Click to type",
 			size = textSize,
 			weight = props.weight,
-			color = props.colors.placeholder,
+			color = colors.placeholder or Theme.subtext0,
 			alignY = "mid",
 			transparency = placeholderVisibility,
 			visible = function()

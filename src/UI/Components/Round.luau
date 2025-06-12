@@ -13,7 +13,7 @@ export type RoundProps = {
 local ZERO_UDIM = UDim.new()
 
 local function Round(props: RoundProps)
-	return create "UiCorner" {
+	return create "UICorner" {
 		Name = props.name or "Round",
 		CornerRadius = props.round or ZERO_UDIM,
 	}

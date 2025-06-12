@@ -1,6 +1,6 @@
 local Epoch = script:FindFirstAncestor("Epoch")
 local TextField = require("./TextField")
-local Theme = require(Epoch.Ui.Theme)
+local Theme = require(Epoch.UI.Theme)
 local UILabs = require(Epoch.Packages.UILabs)
 local Vide = require(Epoch.Packages.Vide)
 
@@ -9,6 +9,7 @@ return UILabs.CreateVideStory(
 		vide = require(Epoch.Packages.Vide),
 		controls = {
 			placeholder = "Type to search potential victims...",
+			focusRing = Color3.fromRGB(60, 90, 210),
 		},
 	},
 	function(props: UILabs.VideProps)
@@ -24,12 +25,10 @@ return UILabs.CreateVideStory(
 						text(new)
 					end,
 
-					colors = {
-						background = Theme.input.background,
-						borderActive = Theme.input.borderActive,
-						text = Theme.text,
-						placeholder = Theme.input.placeholder,
-					},
+					cornerRadius = UDim.new(0, 4),
+					focusRing = props.controls.focusRing,
+
+					colors = {},
 				}
 			end,
 		})

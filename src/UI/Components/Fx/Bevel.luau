@@ -34,14 +34,14 @@ local function BevelStrokeLayer(props: BevelStrokeLayerProps)
 		Size = UDim2.new(1, 0, 0, 32),
 		BackgroundTransparency = 1,
 
-		props.cornerRadius and create "UiCorner" {
+		props.cornerRadius and create "UICorner" {
 			CornerRadius = dissolve(function(read)
 				local offset = if read(props.invert) then 0 else -read(props.thickness)
 				return read(props.cornerRadius) :: UDim + UDim.new(0, offset)
 			end),
 		},
 
-		create "UiStroke" {
+		create "UIStroke" {
 			ApplyStrokeMode = Enum.ApplyStrokeMode.Border,
 			Color = dissolve(function(read)
 				return if read(isShaded) then Color3.new() else Color3.new(1, 1, 1)
@@ -50,7 +50,7 @@ local function BevelStrokeLayer(props: BevelStrokeLayerProps)
 			Thickness = props.thickness,
 			Transparency = 0,
 
-			create "UiGradient" {
+			create "UIGradient" {
 				Rotation = dissolve(function(read)
 					return if read(props.placement) == "top" then 90 else -90
 				end),
