@@ -1,13 +1,12 @@
 local plugin = script:FindFirstAncestorWhichIsA("Plugin")
 assert(plugin, "Epoch must be ran as a plugin")
 
-local Epoch = script:FindFirstAncestor("Epoch")
-local InspectView = require("./UI/Views/Inspect/InspectView")
-local LibraryView = require("./UI/Views/Library/LibraryView")
-local Logger = require("./Utils/Logger")
-local Trove = require(Epoch.Packages.Trove)
-local Vide = require(Epoch.Packages.Vide)
-local Widget = require("./UI/Components/Studio/Widget")
+local InspectView = require("@ui/Views/Inspect/InspectView")
+local LibraryView = require("@ui/Views/Library/LibraryView")
+local Logger = require("@src/Utils/Logger")
+local Trove = require("@pkgs/Trove")
+local Vide = require("@pkgs/Vide")
+local Widget = require("@components/Studio/Widget")
 
 local PLACEHOLDER = "rbxassetid://132587080161296"
 

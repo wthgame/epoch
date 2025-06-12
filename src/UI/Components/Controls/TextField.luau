@@ -1,15 +1,14 @@
 local TextService = game:GetService("TextService")
 
-local Epoch = script:FindFirstAncestor("Epoch")
-local Bevel = require(Epoch.UI.Components.Fx.Bevel)
-local Padding = require(Epoch.UI.Components.Padding)
-local Round = require(Epoch.UI.Components.Round)
-local Text = require(Epoch.UI.Components.Text)
-local Theme = require(Epoch.UI.Theme)
-local Types = require(Epoch.Types)
-local Vide = require(Epoch.Packages.Vide)
-local changed = require(Epoch.Utils.Vide.Actions.changed)
-local dissolve = require(Epoch.Utils.Vide.dissolve)
+local Bevel = require("@components/Fx/Bevel")
+local Padding = require("@components/Padding")
+local Round = require("@components/Round")
+local Text = require("@components/Text")
+local Theme = require("@ui/Theme")
+local Types = require("@src/Types")
+local Vide = require("@pkgs/Vide")
+local changed = require("@utils/Vide/Actions/changed")
+local dissolve = require("@utils/Vide/dissolve")
 
 local create, source, spring, read = Vide.create, Vide.source, Vide.spring, Vide.read
 

@@ -1,6 +1,5 @@
-local Epoch = script:FindFirstAncestor("Epoch")
 local Text = require("./Text")
-local UILabs = require(Epoch.Packages.UILabs)
+local UILabs = require("@pkgs/UILabs")
 
 local TOCAV_WIKI_PAGE = "Tower of Complexity and Volatility (ToCaV) is a Terrifying difficulty, "
 	.. "ascension-based Tower located in Zone 10. It was made by Miantoz1980, ImNotFireMan123 and "
@@ -9,7 +8,7 @@ local TOCAV_WIKI_PAGE = "Tower of Complexity and Volatility (ToCaV) is a Terrify
 
 return UILabs.CreateVideStory(
 	{
-		vide = require(Epoch.Packages.Vide),
+		vide = require("@pkgs/Vide"),
 		controls = {
 			text = TOCAV_WIKI_PAGE,
 			rgba = UILabs.RGBA(Color3.new(1, 1, 1), 0),

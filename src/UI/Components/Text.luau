@@ -1,9 +1,8 @@
-local Epoch = script:FindFirstAncestor("Epoch")
-local Theme = require(Epoch.UI.Theme)
-local Types = require(Epoch.Types)
-local Vide = require(Epoch.Packages.Vide)
-local dissolve = require(Epoch.Utils.Vide.dissolve)
-local exhaustiveMatch = require(Epoch.Utils.exhaustiveMatch)
+local Theme = require("@ui/Theme")
+local Types = require("@src/Types")
+local Vide = require("@pkgs/Vide")
+local dissolve = require("@utils/Vide/dissolve")
+local exhaustiveMatch = require("@utils/exhaustiveMatch")
 
 type Align = "start" | "mid" | "end"
 

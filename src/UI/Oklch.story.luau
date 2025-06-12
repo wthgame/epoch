@@ -1,8 +1,7 @@
-local Epoch = script:FindFirstAncestor("Epoch")
-local Oklab = require(Epoch.Packages.Oklab)
-local UILabs = require(Epoch.Packages.UILabs)
-local Vide = require(Epoch.Packages.Vide)
-local iterArray = require(Epoch.Utils.Collections.iterArray)
+local Oklab = require("@pkgs/Oklab")
+local UILabs = require("@pkgs/UILabs")
+local Vide = require("@pkgs/Vide")
+local iterArray = require("@utils/Collections/iterArray")
 
 local create, source = Vide.create, Vide.source
 

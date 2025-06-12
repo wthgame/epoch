@@ -1,5 +1,4 @@
-local Epoch = script:FindFirstAncestor("Epoch")
-local Vide = require(Epoch.Packages.Vide)
+local Vide = require("@pkgs/Vide")
 
 local action, cleanup = Vide.action, Vide.cleanup
 

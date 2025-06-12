@@ -1,9 +1,8 @@
-local Epoch = script:FindFirstAncestor("Epoch")
-local Contextual = require(Epoch.Utils.Contextual)
-local Oklab = require(Epoch.Packages.Oklab)
-local Padding = require(Epoch.UI.Components.Padding)
-local Types = require(Epoch.Types)
-local Vide = require(Epoch.Packages.Vide)
+local Contextual = require("@utils/Contextual")
+local Oklab = require("@pkgs/Oklab")
+local Padding = require("@components/Padding")
+local Types = require("@src/Types")
+local Vide = require("@pkgs/Vide")
 
 local create = Vide.create
 

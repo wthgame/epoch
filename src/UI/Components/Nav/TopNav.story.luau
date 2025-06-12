@@ -1,9 +1,9 @@
--- local Epoch = script:FindFirstAncestor("Epoch")
+--
 -- local NavTypes = require("./NavTypes")
--- local Theme = require(Epoch.UI.Theme)
+-- local Theme = require("@ui/Theme")
 -- local TopNav = require("./TopNav")
--- local UILabs = require(Epoch.Packages.UILabs)
--- local Vide = require(Epoch.Packages.Vide)
+-- local UILabs = require("@pkgs/UILabs")
+-- local Vide = require("@pkgs/Vide")
 
 -- return UILabs.CreateVideStory(
 -- 	{

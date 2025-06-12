@@ -1,10 +1,9 @@
-local Epoch = script:FindFirstAncestor("Epoch")
 -- local Assets = require(Epoch.Assets)
 -- local NavTypes = require(Epoch.UI.Components.Nav.NavTypes)
 -- local TextField = require(Epoch.UI.Components.Controls.TextField)
-local Theme = require(Epoch.UI.Theme)
+local Theme = require("@ui/Theme")
 -- local TopNav = require(Epoch.UI.Components.Nav.TopNav)
-local Vide = require(Epoch.Packages.Vide)
+local Vide = require("@pkgs/Vide")
 
 local create, _source = Vide.create, Vide.source
 

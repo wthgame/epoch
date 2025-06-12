@@ -1,5 +1,4 @@
-local Epoch = script:FindFirstAncestor("Epoch")
-local Types = require(Epoch.Types)
+local Types = require("@src/Types")
 
 type IconPlacement = "left" | "top"
 

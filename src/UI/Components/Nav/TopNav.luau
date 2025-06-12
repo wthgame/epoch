@@ -1,8 +1,8 @@
--- local Epoch = script:FindFirstAncestor("Epoch")
+--
 -- local NavTypes = require("./NavTypes")
--- local Text = require(Epoch.UI.Components.Text)
--- local Vide = require(Epoch.Packages.Vide)
--- local dissolve = require(Epoch.Utils.Vide.dissolve)
+-- local Text = require("@components/Text")
+-- local Vide = require("@pkgs/Vide")
+-- local dissolve = require("@utils/Vide/dissolve")
 -- local iterArray = require(Epoch.Utils.Collections.iterArray)
 
 -- local function TopNavOption(props: NavTypes.NavOption, navProps: NavTypes.NavProps)

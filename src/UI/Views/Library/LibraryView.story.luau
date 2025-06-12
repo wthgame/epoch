@@ -1,11 +1,10 @@
-local Epoch = script:FindFirstAncestor("Epoch")
 local LibraryView = require("./LibraryView")
-local Theme = require(Epoch.UI.Theme)
-local UILabs = require(Epoch.Packages.UILabs)
+local Theme = require("@ui/Theme")
+local UILabs = require("@pkgs/UILabs")
 
 return UILabs.CreateVideStory(
 	{
-		vide = require(Epoch.Packages.Vide),
+		vide = require("@pkgs/Vide"),
 	},
 	function(props: UILabs.VideProps)
 		return Theme.ThemePreview {

@@ -1,6 +1,5 @@
-local Epoch = script:FindFirstAncestor("Epoch")
-local Types = require(Epoch.Types)
-local Vide = require(Epoch.Packages.Vide)
+local Types = require("@src/Types")
+local Vide = require("@pkgs/Vide")
 
 local create = Vide.create
 

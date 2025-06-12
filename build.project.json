@@ -1,0 +1,10 @@
+{
+    "name": "Epoch",
+    "emitLegacyScripts": true,
+    "tree": {
+        "$path": "dist",
+        "Packages": {
+            "$path": "roblox_packages"
+        }
+    }
+}

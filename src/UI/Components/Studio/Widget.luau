@@ -1,9 +1,8 @@
 local plugin = script:FindFirstAncestorWhichIsA("Plugin")
 assert(plugin, "Epoch must be ran as a plugin")
 
-local Epoch = script:FindFirstAncestor("Epoch")
-local Types = require(Epoch.Types)
-local Vide = require(Epoch.Packages.Vide)
+local Types = require("@src/Types")
+local Vide = require("@pkgs/Vide")
 
 local read = Vide.read
 

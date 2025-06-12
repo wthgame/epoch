@@ -1,6 +1,5 @@
-local Epoch = script:FindFirstAncestor("Epoch")
-local Types = require(Epoch.Types)
-local Vide = require(Epoch.Packages.Vide)
+local Types = require("@src/Types")
+local Vide = require("@pkgs/Vide")
 
 --- Dissolves a source into a constant value if it has no `read` dependencies.
 local function dissolve<T>(source: (read: <T>(value: Types.ReadAs<T>) -> T) -> T): Types.ReadAs<T>
