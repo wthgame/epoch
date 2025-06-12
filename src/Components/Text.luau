@@ -1,4 +1,4 @@
-local Theme = require("@ui/Theme")
+local Theme = require("@src/Theme")
 local Types = require("@src/Types")
 local Vide = require("@pkgs/Vide")
 local dissolve = require("@utils/Vide/dissolve")

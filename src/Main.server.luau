@@ -1,8 +1,8 @@
-local plugin = script:FindFirstAncestorWhichIsA("Plugin")
+local plugin = require("@src/plugin")
 assert(plugin, "Epoch must be ran as a plugin")
 
-local InspectView = require("@ui/Views/Inspect/InspectView")
-local LibraryView = require("@ui/Views/Library/LibraryView")
+local InspectView = require("@views/Inspect/InspectView")
+local LibraryView = require("@views/Library/LibraryView")
 local Logger = require("@src/Utils/Logger")
 local Trove = require("@pkgs/Trove")
 local Vide = require("@pkgs/Vide")

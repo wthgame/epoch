@@ -1,4 +1,4 @@
-local Theme = require("@ui/Theme")
+local Theme = require("@src/Theme")
 local Vide = require("@pkgs/Vide")
 
 export type InspectViewProps = {}

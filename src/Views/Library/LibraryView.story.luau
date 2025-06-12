@@ -1,5 +1,5 @@
 local LibraryView = require("./LibraryView")
-local Theme = require("@ui/Theme")
+local Theme = require("@src/Theme")
 local UILabs = require("@pkgs/UILabs")
 
 return UILabs.CreateVideStory(

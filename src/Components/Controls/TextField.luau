@@ -4,7 +4,7 @@ local Bevel = require("@components/Fx/Bevel")
 local Padding = require("@components/Padding")
 local Round = require("@components/Round")
 local Text = require("@components/Text")
-local Theme = require("@ui/Theme")
+local Theme = require("@src/Theme")
 local Types = require("@src/Types")
 local Vide = require("@pkgs/Vide")
 local changed = require("@utils/Vide/Actions/changed")
@@ -12,7 +12,7 @@ local dissolve = require("@utils/Vide/dissolve")
 
 local create, source, spring, read = Vide.create, Vide.source, Vide.spring, Vide.read
 
-export type TextFieldProps = {
+export type TextFieldProps = Types.UnpackableProps & {
 	name: Types.ReadAs<string>?,
 
 	text: Types.ReadAs<string>,
@@ -186,6 +186,8 @@ local function TextField(props: TextFieldProps)
 				anchorPoint = Vector2.new(0, 0.5),
 			},
 		},
+
+		table.unpack(props),
 	}
 end
 

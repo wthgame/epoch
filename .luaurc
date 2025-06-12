@@ -9,8 +9,8 @@
     "aliases": {
         "src": "src",
         "pkgs": "roblox_packages",
-        "ui": "src/UI",
-        "components": "src/UI/Components",
+        "components": "src/Components",
+        "views": "src/Views",
         "utils": "src/Utils"
     }
 }

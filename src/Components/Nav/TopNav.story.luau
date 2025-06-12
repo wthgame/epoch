@@ -1,6 +1,6 @@
 --
 -- local NavTypes = require("./NavTypes")
--- local Theme = require("@ui/Theme")
+-- local Theme = require("@src/Theme")
 -- local TopNav = require("./TopNav")
 -- local UILabs = require("@pkgs/UILabs")
 -- local Vide = require("@pkgs/Vide")
