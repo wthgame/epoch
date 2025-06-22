@@ -1,4 +1,4 @@
-local game_utils = require("./game_utils")
+local game_utils = require("@src/games/game_utils")
 
 return game_utils.Game({
 	id = "etoh",

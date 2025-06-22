@@ -5,7 +5,7 @@ local read = vide.read
 
 export type WidgetProps = {
 	id: vide.As<string>,
-	guiInfo: DockWidgetPluginGuiInfo,
+	gui_info: DockWidgetPluginGuiInfo,
 	title: vide.As<string>?,
 	enabled: vide.As<boolean>?,
 
@@ -22,7 +22,7 @@ export type WidgetProps = {
 }
 
 local function Widget(props: WidgetProps): DockWidgetPluginGui
-	local widget = plugin:CreateDockWidgetPluginGui(read(props.id), props.guiInfo)
+	local widget = plugin:CreateDockWidgetPluginGui(read(props.id), props.gui_info)
 
 	if props.on_close then
 		widget:BindToClose(props.on_close)

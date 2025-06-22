@@ -41,7 +41,7 @@ plugin_trove:Add(vide.mount(function()
 
 	Widget {
 		id = "Epoch/Library",
-		guiInfo = DockWidgetPluginGuiInfo.new(Enum.InitialDockState.Right, false, false, 400, 400),
+		gui_info = DockWidgetPluginGuiInfo.new(Enum.InitialDockState.Right, false, false, 400, 400),
 		title = "Epoch Library",
 		enabled = library_toggled,
 		on_close = function()
@@ -55,7 +55,7 @@ plugin_trove:Add(vide.mount(function()
 
 	Widget {
 		id = "Epoch/Inspect",
-		guiInfo = DockWidgetPluginGuiInfo.new(Enum.InitialDockState.Right, false, false, 400, 400),
+		gui_info = DockWidgetPluginGuiInfo.new(Enum.InitialDockState.Right, false, false, 400, 400),
 		title = "Epoch Inspect",
 		enabled = inspect_toggled,
 		on_close = function()
@@ -69,7 +69,7 @@ plugin_trove:Add(vide.mount(function()
 
 	Widget {
 		id = "Epoch/Tools",
-		guiInfo = DockWidgetPluginGuiInfo.new(Enum.InitialDockState.Right, false, false, 400, 400),
+		gui_info = DockWidgetPluginGuiInfo.new(Enum.InitialDockState.Right, false, false, 400, 400),
 		title = "Epoch Tools",
 		enabled = tools_toggled,
 		on_close = function()
@@ -83,7 +83,7 @@ plugin_trove:Add(vide.mount(function()
 
 	Widget {
 		id = "Epoch/Project",
-		guiInfo = DockWidgetPluginGuiInfo.new(Enum.InitialDockState.Float, false, false, 400, 400),
+		gui_info = DockWidgetPluginGuiInfo.new(Enum.InitialDockState.Float, false, false, 400, 400),
 		title = "Epoch Project",
 		enabled = project_toggled,
 		on_close = function()
@@ -95,7 +95,7 @@ plugin_trove:Add(vide.mount(function()
 
 	Widget {
 		id = "Epoch/Settings",
-		guiInfo = DockWidgetPluginGuiInfo.new(Enum.InitialDockState.Float, false, false, 400, 400),
+		gui_info = DockWidgetPluginGuiInfo.new(Enum.InitialDockState.Float, false, false, 400, 400),
 		title = "Epoch Settings",
 		enabled = settings_toggled,
 		on_close = function()
@@ -121,8 +121,10 @@ plugin_trove:Add(vide.mount(function()
 					if not requireSuccess then
 						logger:warn("Failed to require spec module", module:GetFullName(), "because:", testOrError)
 					else
-						tiniest.describe(module.Name:gsub("%.spec$", ""), function()
-							testOrError(tiniest)
+						tiniest.describe(module.Parent.Name, function()
+							tiniest.describe(module.Name:gsub("%.spec$", ""), function()
+								testOrError(tiniest)
+							end)
 						end)
 					end
 				end
