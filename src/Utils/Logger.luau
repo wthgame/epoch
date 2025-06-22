@@ -12,7 +12,7 @@ export type LoggerMessage = {
 export type Logger = {
 	name: string,
 	messages: { LoggerMessage },
-	maxLevel: number?,
+	max_level: number?,
 
 	trace: (self: Logger, ...unknown) -> LoggerMessage,
 	debug: (self: Logger, ...unknown) -> LoggerMessage,
@@ -41,23 +41,23 @@ local LOG_LEVEL_TO_EMOJI = table.freeze({
 	[LogLevel.Error] = "🔥",
 })
 
-local defaultMaxLevel = LogLevel.Trace
-local maxLevelPerThread: { [thread]: number } = setmetatable({} :: any, { __mode = "k" })
+local default_max_level = LogLevel.Trace
+local max_level_per_thread: { [thread]: number } = setmetatable({} :: any, { __mode = "k" })
 
-local function maxLevel()
-	return maxLevelPerThread[coroutine.running()] or defaultMaxLevel
+local function max_level()
+	return max_level_per_thread[coroutine.running()] or default_max_level
 end
 
-local function setDefaultMaxLevel(level: number)
-	defaultMaxLevel = level
+local function set_default_max_level(level: number)
+	default_max_level = level
 end
 
-local function setMaxLevelForThread(level: number?, thread: thread?)
+local function set_max_level_for_thread(level: number?, thread: thread?)
 	local thread = thread or coroutine.running()
-	maxLevelPerThread[thread] = level :: any
+	max_level_per_thread[thread] = level :: any
 end
 
-local function formatMessage(message: LoggerMessage): string
+local function format_message(message: LoggerMessage): string
 	local stringifiedArgs = {}
 	for index = 1, message.args.n do
 		local stringified = tostring(message.args[index])
@@ -73,7 +73,7 @@ local function formatMessage(message: LoggerMessage): string
 	return (formatted:gsub("\n", "\n    "))
 end
 
-local function createLoggerFunction(level: number, outputFunction: (string) -> ())
+local function create_logger_function(level: number, output: (string) -> ())
 	local function logLevel(self: Logger, ...: unknown): LoggerMessage
 		local message: LoggerMessage = {
 			when = os.time(),
@@ -82,23 +82,23 @@ local function createLoggerFunction(level: number, outputFunction: (string) -> (
 			args = table.pack(...),
 		}
 		table.insert(self.messages, message)
-		if self.maxLevel or maxLevel() >= maxLevel() then
-			outputFunction(formatMessage(message))
+		if self.max_level or max_level() >= max_level() then
+			output(format_message(message))
 		end
 		return message
 	end
 	return logLevel
 end
 
-local logTrace = createLoggerFunction(LogLevel.Trace, print)
-local logDebug = createLoggerFunction(LogLevel.Debug, print)
-local logInfo = createLoggerFunction(LogLevel.Info, print)
-local logWarn = createLoggerFunction(LogLevel.Warn, warn)
-local logError = createLoggerFunction(LogLevel.Error, function(msg)
+local log_trace = create_logger_function(LogLevel.Trace, print)
+local log_debug = create_logger_function(LogLevel.Debug, print)
+local log_info = create_logger_function(LogLevel.Info, print)
+local log_warn = create_logger_function(LogLevel.Warn, warn)
+local log_error = create_logger_function(LogLevel.Error, function(msg)
 	task.spawn(error, msg, 0)
 end)
 
-local function logAssert<T>(self: Logger, value: T, ...: unknown)
+local function log_assert<T>(self: Logger, value: T, ...: unknown)
 	if value then
 		return value
 	end
@@ -109,31 +109,31 @@ local function logAssert<T>(self: Logger, value: T, ...: unknown)
 		args = table.pack(if select("#", ...) > 0 then ... else `Cannot assert {value} is truthy`),
 	}
 	table.insert(self.messages, message)
-	error(formatMessage(message))
+	error(format_message(message))
 end
 
-local function new(name: string, maxLevel: number?): Logger
+local function create(name: string, max_level: number?): Logger
 	return {
 		name = name,
 		messages = {},
-		maxLevel = maxLevel,
+		max_level = max_level,
 
-		trace = logTrace,
-		debug = logDebug,
-		info = logInfo,
-		warn = logWarn,
-		error = logError,
+		trace = log_trace,
+		debug = log_debug,
+		info = log_info,
+		warn = log_warn,
+		error = log_error,
 
-		assert = logAssert,
+		assert = log_assert,
 	}
 end
 
 return table.freeze({
 	LogLevel = LogLevel,
 	LOG_LEVEL_TO_EMOJI = LOG_LEVEL_TO_EMOJI,
-	maxLevel = maxLevel,
-	setDefaultMaxLevel = setDefaultMaxLevel,
-	setMaxLevelForThread = setMaxLevelForThread,
-	formatMessage = formatMessage,
-	new = new,
+	max_level = max_level,
+	set_default_max_level = set_default_max_level,
+	set_max_level_for_thread = set_max_level_for_thread,
+	format_message = format_message,
+	create = create,
 })

@@ -1,0 +1,23 @@
+name = "elttob/tiniest"
+version = "1.0.0"
+description = "Collection of minimal, portable testing libraries for Luau"
+authors = ["Elttob"]
+repository = "https://github.com/Elttob/LibOpen"
+license = "MIT"
+private = true
+
+[target]
+    environment = "roblox"
+    lib = "src/tiniest_for_roblox.luau"
+    build_files = ["src"]
+
+[indices]
+    default = "https://github.com/pesde-pkg/index"
+
+[scripts]
+    roblox_sync_config_generator = ".pesde/scripts/roblox_sync_config_generator.luau"
+    sourcemap_generator = ".pesde/scripts/sourcemap_generator.luau"
+
+[dev_dependencies]
+    scripts = { name = "pesde/scripts_rojo", version = "^0.1.0", target = "lune" }
+    rojo = { name = "pesde/rojo", version = "^7.4.4", target = "lune" }

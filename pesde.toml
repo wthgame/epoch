@@ -6,29 +6,30 @@ repository = "https://github.com/team-fireworks/epoch"
 license = "GNU GPLv3"
 private = true
 
-workspace_members = ["libs/*"]
+workspace_members = ["vendor/*"]
 
 [target]
-environment = "roblox"
+    environment = "roblox"
 
 [indices]
-default = "https://github.com/pesde-pkg/index"
+    default = "https://github.com/pesde-pkg/index"
 
 [wally_indices]
-default = "https://github.com/UpliftGames/wally-index"
+    default = "https://github.com/UpliftGames/wally-index"
 
 [scripts]
-roblox_sync_config_generator = ".pesde/scripts/roblox_sync_config_generator.luau"
-sourcemap_generator = ".pesde/scripts/sourcemap_generator.luau"
+    roblox_sync_config_generator = ".pesde/scripts/roblox_sync_config_generator.luau"
+    sourcemap_generator = ".pesde/scripts/sourcemap_generator.luau"
 
 [dev_dependencies]
-scripts = { name = "pesde/scripts_rojo", version = "^0.1.0", target = "lune" }
-rojo = { name = "pesde/rojo", version = "^7.4.4", target = "lune" }
+    scripts = { name = "pesde/scripts_rojo", version = "^0.1.0", target = "lune" }
+    rojo = { name = "pesde/rojo", version = "^7.4.4", target = "lune" }
 
 [dependencies]
-Option = { name = "lukadev_0/option", version = "^1.2.0" }
-Result = { name = "lukadev_0/result", version = "^1.2.0" }
-Vide = { name = "alicesaidhi/vide", version = "^0.4.1-testing.4" }
-Trove = { wally = "sleitnick/trove", version = "^1.5.0" }
-UILabs = { wally = "pepeeltoro41/ui-labs", version = "^2.3.8" }
-Oklab = { workspace = "elttob/oklab", version = "^" }
+    option = { name = "lukadev_0/option", version = "^1.2.0" }
+    result = { name = "lukadev_0/result", version = "^1.2.0" }
+    vide = { name = "alicesaidhi/vide", version = "^0.4.1-testing.4" }
+    trove = { wally = "sleitnick/trove", version = "^1.5.0" }
+    ui-labs = { wally = "pepeeltoro41/ui-labs", version = "^2.3.8" }
+    oklab = { workspace = "elttob/oklab", version = "^" }
+    tiniest = { workspace = "elttob/tiniest", version = "^" }

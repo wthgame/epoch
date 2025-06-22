@@ -11,10 +11,7 @@
                 "name": "path",
                 "sources": {
                     "@src": "src/",
-                    "@pkgs": "roblox_packages/",
-                    "@components": "src/Components",
-                    "@views": "src/Views",
-                    "@utils": "src/Utils"
+                    "@pkgs": "roblox_packages/"
                 }
             },
             "target": {
