@@ -5,9 +5,5 @@
         "LocalShadow": false
     },
     "lintErrors": true,
-    "typeErrors": true,
-    "aliases": {
-        "src": "src",
-        "pkgs": "roblox_packages"
-    }
+    "typeErrors": true
 }

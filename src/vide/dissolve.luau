@@ -1,33 +1,35 @@
-local types = require("./types")
-local vide = require("@pkgs/vide")
+local Epoch = script:FindFirstAncestor("Epoch")
 
-local read = vide.read
+local Types = require(Epoch.Vide.Types)
+local Vide = require(Epoch.Packages.Vide)
+
+local read = Vide.read
 
 --- Dissolves a source into a constant value if it has no `read` dependencies.
-local function dissolve<T>(source: (read: <T>(value: types.As<T>) -> T) -> T): types.As<T>
-	local reads_dependency = false
+local function dissolve<T>(source: (read: <T>(value: Types.As<T>) -> T) -> T): Types.As<T>
+	local readsDependency = false
 
 	local function mockRead(value: unknown)
 		if typeof(value) == "function" then
-			reads_dependency = true
+			readsDependency = true
 			error("used dependency")
 		end
 		return value
 	end
 
-	local initial_success, dissolved_or_error = pcall(source, mockRead :: any)
+	local initialSuccess, dissolvedOrError = pcall(source, mockRead :: any)
 
-	if initial_success then
-		return dissolved_or_error
+	if initialSuccess then
+		return dissolvedOrError
 	end
 
-	if reads_dependency then
+	if readsDependency then
 		return function()
 			return source(read :: any)
 		end
 	end
 
-	error(`dissolving source threw an error: {dissolved_or_error}`)
+	error(`Dissolving source threw an error: {dissolvedOrError}`)
 end
 
 return dissolve

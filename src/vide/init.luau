@@ -1,17 +1,19 @@
-local changed = require("@self/actions/changed")
-local dissolve = require("@self/dissolve")
-local types = require("@self/types")
-local vide = require("@pkgs/vide")
+local Epoch = script:FindFirstAncestor("Epoch")
 
-export type Source<T> = vide.Source<T>
-export type As<T> = types.As<T>
-export type Child = types.Child
+local Types = require(Epoch.Vide.Types)
+local Vide = require(Epoch.Packages.Vide)
+local changed = require(Epoch.Vide.Actions.changed)
+local dissolve = require(Epoch.Vide.dissolve)
 
-local vide_extended = {
+export type Source<T> = Vide.Source<T>
+export type As<T> = Types.As<T>
+export type Child = Types.Child
+
+local extension = {
 	actions = table.freeze {
 		changed = changed,
 	},
 	dissolve = dissolve,
 }
 
-return table.freeze(setmetatable(vide_extended, table.freeze { __index = vide }))
+return table.freeze(setmetatable(extension, table.freeze { __index = Vide }))

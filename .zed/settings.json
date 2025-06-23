@@ -9,7 +9,7 @@
                 "luau-lsp": {
                     "platform": {
                         "type": "roblox"
-                    },
+                    }
                     // "completion": {
                     //     "enabled": true,
                     //     "imports": {

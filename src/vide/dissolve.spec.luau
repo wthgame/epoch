@@ -1,8 +1,10 @@
-local dissolve = require("./dissolve")
-local tiniest = require("@pkgs/tiniest")
-local vide = require(".")
+local Epoch = script:FindFirstAncestor("Epoch")
 
-return function(tiniest: tiniest.Configured)
+local Tiniest = require(Epoch.Packages.Tiniest)
+local Vide = require(Epoch.Packages.Vide)
+local dissolve = require(script.Parent.dissolve)
+
+return function(tiniest: Tiniest.Configured)
 	local test = tiniest.test
 	local expect = tiniest.expect
 
@@ -12,7 +14,7 @@ return function(tiniest: tiniest.Configured)
 			return as
 		end)
 		expect(dissolved).never_is_a("function")
-		expect(vide.read(dissolved)).is(as)
+		expect(dissolved).is(as)
 	end)
 
 	test("reads constant", function()
@@ -21,15 +23,15 @@ return function(tiniest: tiniest.Configured)
 			return read(as)
 		end)
 		expect(dissolved).never_is_a("function")
-		expect(vide.read(dissolved)).is(as)
+		expect(dissolved).is(as)
 	end)
 
 	test("reads dependency", function()
-		local as = vide.source("source")
+		local as = Vide.source("source")
 		local dissolved = dissolve(function(read)
 			return read(as)
 		end)
 		expect(dissolved).is_a("function")
-		expect(vide.read(dissolved)).is("source")
+		expect(Vide.read(dissolved)).is("source")
 	end)
 end

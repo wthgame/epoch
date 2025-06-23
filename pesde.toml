@@ -26,10 +26,10 @@ workspace_members = ["vendor/*"]
     rojo = { name = "pesde/rojo", version = "^7.4.4", target = "lune" }
 
 [dependencies]
-    option = { name = "lukadev_0/option", version = "^1.2.0" }
-    result = { name = "lukadev_0/result", version = "^1.2.0" }
-    vide = { name = "alicesaidhi/vide", version = "^0.4.1-testing.4" }
-    trove = { wally = "sleitnick/trove", version = "^1.5.0" }
-    ui-labs = { wally = "pepeeltoro41/ui-labs", version = "^2.3.8" }
-    oklab = { workspace = "elttob/oklab", version = "^" }
-    tiniest = { workspace = "elttob/tiniest", version = "^" }
+    Option = { name = "lukadev_0/option", version = "^1.2.0" }
+    Result = { name = "lukadev_0/result", version = "^1.2.0" }
+    Vide = { name = "alicesaidhi/vide", version = "^0.4.1-testing.4" }
+    Trove = { wally = "sleitnick/trove", version = "^1.5.0" }
+    UILabs = { wally = "pepeeltoro41/ui-labs", version = "^2.3.8" }
+    Oklab = { workspace = "elttob/oklab", version = "^" }
+    Tiniest = { workspace = "elttob/tiniest", version = "^" }

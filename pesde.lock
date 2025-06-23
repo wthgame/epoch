@@ -25,7 +25,7 @@ luau-lsp = [{ name = "pesde/luau_lsp", version = "=1.39.2", index = "https://git
 stylua = [{ name = "pesde/stylua", version = "=2.0.2", index = "https://github.com/pesde-pkg/index", target = "lune" }, "dev"]
 
 [graph."alicesaidhi/vide@0.4.1-testing.4 roblox"]
-direct = ["vide", { name = "alicesaidhi/vide", version = "^0.4.1-testing.4", index = "default" }, "standard"]
+direct = ["Vide", { name = "alicesaidhi/vide", version = "^0.4.1-testing.4", index = "default" }, "standard"]
 
 [graph."alicesaidhi/vide@0.4.1-testing.4 roblox".pkg_ref]
 ref_ty = "pesde"
@@ -36,7 +36,7 @@ ref_ty = "pesde"
 index_url = "https://github.com/daimond113/pesde-index"
 
 [graph."elttob/oklab@1.0.0 roblox"]
-direct = ["oklab", { workspace = "elttob/oklab", version = "^" }, "standard"]
+direct = ["Oklab", { workspace = "elttob/oklab", version = "^" }, "standard"]
 
 [graph."elttob/oklab@1.0.0 roblox".pkg_ref]
 ref_ty = "workspace"
@@ -47,7 +47,7 @@ rojo = [{ name = "pesde/rojo", version = "^7.4.4", index = "https://github.com/p
 scripts = [{ name = "pesde/scripts_rojo", version = "^0.1.0", index = "https://github.com/pesde-pkg/index", target = "lune" }, "dev"]
 
 [graph."elttob/tiniest@1.0.0 roblox"]
-direct = ["tiniest", { workspace = "elttob/tiniest", version = "^" }, "standard"]
+direct = ["Tiniest", { workspace = "elttob/tiniest", version = "^" }, "standard"]
 
 [graph."elttob/tiniest@1.0.0 roblox".pkg_ref]
 ref_ty = "workspace"
@@ -101,7 +101,7 @@ luau_check = [{ name = "jiwonz/luau_check", version = "^0.3.8", index = "https:/
 luau_path = [{ name = "jiwonz/luau_path", version = "^0.1.1", index = "https://github.com/daimond113/pesde-index", target = "luau" }, "standard"]
 
 [graph."lukadev_0/option@1.2.0 roblox"]
-direct = ["option", { name = "lukadev_0/option", version = "^1.2.0", index = "default" }, "standard"]
+direct = ["Option", { name = "lukadev_0/option", version = "^1.2.0", index = "default" }, "standard"]
 
 [graph."lukadev_0/option@1.2.0 roblox".pkg_ref]
 ref_ty = "pesde"
@@ -112,7 +112,7 @@ ref_ty = "pesde"
 index_url = "https://github.com/pesde-pkg/index"
 
 [graph."lukadev_0/result@1.2.0 roblox"]
-direct = ["result", { name = "lukadev_0/result", version = "^1.2.0", index = "default" }, "standard"]
+direct = ["Result", { name = "lukadev_0/result", version = "^1.2.0", index = "default" }, "standard"]
 
 [graph."lukadev_0/result@1.2.0 roblox".pkg_ref]
 ref_ty = "pesde"
@@ -183,14 +183,14 @@ result = [{ name = "lukadev_0/result", version = "^1.2.0", index = "https://gith
 unzip = [{ name = "0x5eal/unzip", version = "^0.1.0", index = "https://github.com/pesde-pkg/index", target = "luau" }, "standard"]
 
 [graph."wally#pepeeltoro41/ui-labs@2.3.8 roblox"]
-direct = ["ui-labs", { wally = "wally#pepeeltoro41/ui-labs", version = "^2.3.8", index = "default" }, "standard"]
+direct = ["UILabs", { wally = "wally#pepeeltoro41/ui-labs", version = "^2.3.8", index = "default" }, "standard"]
 
 [graph."wally#pepeeltoro41/ui-labs@2.3.8 roblox".pkg_ref]
 ref_ty = "wally"
 index_url = "https://github.com/UpliftGames/wally-index"
 
 [graph."wally#sleitnick/trove@1.5.0 roblox"]
-direct = ["trove", { wally = "wally#sleitnick/trove", version = "^1.5.0", index = "default" }, "standard"]
+direct = ["Trove", { wally = "wally#sleitnick/trove", version = "^1.5.0", index = "default" }, "standard"]
 
 [graph."wally#sleitnick/trove@1.5.0 roblox".pkg_ref]
 ref_ty = "wally"

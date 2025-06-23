@@ -1,7 +1,9 @@
-local vide = require("@pkgs/vide")
+local Epoch = script:FindFirstAncestor("Epoch")
 
-local action = vide.action
-local cleanup = vide.cleanup
+local Vide = require(Epoch.Packages.Vide)
+
+local action = Vide.action
+local cleanup = Vide.cleanup
 
 local function changed(property: string, output: (value: any) -> ())
 	return action(function(instance)
