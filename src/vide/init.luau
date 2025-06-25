@@ -6,6 +6,7 @@ local changed = require(Epoch.Vide.Actions.changed)
 local dissolve = require(Epoch.Vide.dissolve)
 
 export type Source<T> = Vide.Source<T>
+export type Context<T> = Vide.Context<T>
 export type As<T> = Types.As<T>
 export type Child = Types.Child
 

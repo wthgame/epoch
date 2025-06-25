@@ -2,8 +2,9 @@ local Workspace = game:GetService("Workspace")
 local Epoch = script:FindFirstAncestor("Epoch")
 
 local Games = require(Epoch.Core.Games)
-local TimeContextual = require(Epoch.Utils.TimeContextual)
 local Vide = require(Epoch.Vide)
+
+local context = Vide.context
 
 export type Project = {
 	kit: Games.Kit,
@@ -11,11 +12,11 @@ export type Project = {
 }
 
 local ProjectManager = {}
-ProjectManager.currentProject = TimeContextual({
+ProjectManager.currentProject = context({
 	-- temporary
-	kit = Games.nameToGame()["etoh"],
+	kit = Games.nameToGame()["etoh"].kits[1],
 	kitInstance = Workspace,
-} :: any) :: TimeContextual.TimeContextual<Vide.As<Project?>>
+} :: Vide.As<Project>?)
 
 function ProjectManager.discoverProjects(_parent: Instance)
 	error("not yet implemented")

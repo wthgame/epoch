@@ -6,7 +6,7 @@ repository = "https://github.com/team-fireworks/epoch"
 license = "GNU GPLv3"
 private = true
 
-workspace_members = ["vendor/*"]
+workspace_members = ["packages/*"]
 
 [target]
     environment = "roblox"

@@ -1,0 +1,10 @@
+{
+    "luau-lsp.completion.imports.ignoreGlobs": [
+        "luau_packages",
+        "lune_packages",
+        "roblox_packages",
+        "__oldshit"
+    ],
+    "luau-lsp.sourcemap.autogenerate": false,
+    "luau-lsp.completion.imports.requireStyle": "alwaysAbsolute"
+}

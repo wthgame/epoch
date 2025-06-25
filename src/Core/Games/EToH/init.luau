@@ -6,5 +6,7 @@ return Types.Game({
 	id = "etoh",
 	name = "Eternal Towers of Hell",
 	logo = "",
-	kits = {},
+	kits = {
+		require(script:WaitForChild("v5.5")),
+	},
 })
